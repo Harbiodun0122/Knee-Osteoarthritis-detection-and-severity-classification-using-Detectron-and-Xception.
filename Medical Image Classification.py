@@ -17,16 +17,16 @@ from detectron2.utils.visualizer import ColorMode, Visualizer
 from tensorflow.keras.preprocessing.image import img_to_array, load_img
 
 # Load your trained models
-kidney_model = tf.keras.models.load_model(r"C:/Users/Harbiodun/Downloads/Assignment/Project/kidney_best.h5")
-pneumonia_model = tf.keras.models.load_model(r"C:/Users/Harbiodun/Downloads/Assignment/Project/chest_best.h5")
-knee_model = tf.keras.models.load_model(r"C:/Users/Harbiodun/Downloads/Assignment/Project/improved-48-0.84.keras")
+kidney_model = tf.keras.models.load_model(r"kidney_best.h5")
+pneumonia_model = tf.keras.models.load_model(r"chest_best.h5")
+knee_model = tf.keras.models.load_model(r"improved-48-0.84.keras")
 
 
 # Load the Configuration and Model
 cfg = get_cfg()
 cfg.merge_from_file(model_zoo.get_config_file("COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml"))
 cfg.MODEL.ROI_HEADS.NUM_CLASSES = 2 
-cfg.MODEL.WEIGHTS = r"C:/Users/Harbiodun/Downloads/Assignment/Project/model_final.pth"
+cfg.MODEL.WEIGHTS = r"model_final.pth"
 cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.9   # Set a threshold for the detection confidence as 90%
 cfg.MODEL.DEVICE = "cpu"  # Use CPU if no GPU is available
 predictor = DefaultPredictor(cfg)
