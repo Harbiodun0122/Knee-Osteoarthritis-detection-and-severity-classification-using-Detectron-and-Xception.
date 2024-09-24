@@ -26,7 +26,7 @@ knee_model = tf.keras.models.load_model(r"/models/XceptionModels/improved-48-0.8
 cfg = get_cfg()
 cfg.merge_from_file(model_zoo.get_config_file("COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml"))
 cfg.MODEL.ROI_HEADS.NUM_CLASSES = 2 
-cfg.MODEL.WEIGHTS = r"/models/detection_model.pth"
+cfg.MODEL.WEIGHTS = r"/models/output/detection_model.pth"
 cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.9   # Set a threshold for the detection confidence as 90%
 cfg.MODEL.DEVICE = "cpu"  # Use CPU if no GPU is available
 predictor = DefaultPredictor(cfg)
